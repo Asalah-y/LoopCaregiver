@@ -48,23 +48,27 @@ platform :ios do
       xcodeproj: "#{GITHUB_WORKSPACE}/LoopCaregiver/LoopCaregiver.xcodeproj",
       build_number: current_build_number
     )      
-    produce(
+   produce(
       app_identifier: "com.#{TEAMID}.loopkit.LoopCaregiver",
       app_name: "LoopCaregiver",
       language: "English",
       app_version: "1.0",
-      skip_itunes_connect: true
+      skip_it_center: true,
+      skip_itc: true,
+      api_key: api_key
     )
-  match(
+
+    match(
       type: "appstore",
       readonly: false,
+      api_key: api_key,
       git_basic_authorization: Base64.strict_encode64("#{GITHUB_REPOSITORY_OWNER}:#{GH_PAT}"),
       app_identifier: [
         "com.#{TEAMID}.loopkit.LoopCaregiver",
         "com.#{TEAMID}.loopkit.LoopCaregiver.IntentExtension",
         "com.#{TEAMID}.loopkit.LoopCaregiver.WidgetExtension",
         "com.#{TEAMID}.loopkit.LoopCaregiver.watchkitapp",
-        "com.#{TEAMID}.loopkit.LoopCaregiver.watchkitapp.WidgetExtension",
+        "com.#{TEAMID}.loopkit.LoopCaregiver.watchkitapp.WidgetExtension"
       ]
     )
 
