@@ -53,6 +53,7 @@ match(
       readonly: false,
       api_key: api_key,
       git_basic_authorization: Base64.strict_encode64("#{GITHUB_REPOSITORY_OWNER}:#{GH_PAT}"),
+      app_identifier: "com.#{TEAMID}.loopkit.LoopCaregiver"
     )
     mapping = Actions.lane_context[
       SharedValues::MATCH_PROVISIONING_PROFILE_MAPPING
