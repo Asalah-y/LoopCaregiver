@@ -48,12 +48,11 @@ platform :ios do
       xcodeproj: "#{GITHUB_WORKSPACE}/LoopCaregiver/LoopCaregiver.xcodeproj",
       build_number: current_build_number
     )      
-   produce(
+ produce(
       app_identifier: "com.#{TEAMID}.loopkit.LoopCaregiver",
       app_name: "LoopCaregiver",
       language: "English",
       app_version: "1.0",
-      skip_it_center: true,
       skip_itc: true,
       api_key: api_key
     )
