@@ -40,8 +40,6 @@ platform :ios do
     )
 
     previous_build_number = 1
-    )
-
     current_build_number = previous_build_number + 1
 
     increment_build_number(
