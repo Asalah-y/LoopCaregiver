@@ -40,7 +40,7 @@ platform :ios do
     )
 
     previous_build_number = 1
-    
+    )
 
     current_build_number = previous_build_number + 1
 
@@ -48,19 +48,19 @@ platform :ios do
       xcodeproj: "#{GITHUB_WORKSPACE}/LoopCaregiver/LoopCaregiver.xcodeproj",
       build_number: current_build_number
     )      
-match(
-  type: "appstore",
-  readonly: false,
-  api_key: api_key,
-  git_basic_authorization: Base64.strict_encode64("#{GITHUB_REPOSITORY_OWNER}:#{GH_PAT}"),
-  app_identifier: [
-    "com.QA6R25DG78.loopkit.LoopCaregiver",
-    "com.QA6R25DG78.loopkit.LoopCaregiver.WatchApp",
-    "com.QA6R25DG78.loopkit.LoopCaregiver.WatchApp.WatchAppExtension",
-    "com.QA6R25DG78.loopkit.LoopCaregiver.LoopCaregiverWidgetExtension",
-    "com.QA6R25DG78.loopkit.LoopCaregiver.LoopCaregiverIntentExtension"
-  ]
-)
+    
+    match(
+      type: "appstore",
+      git_basic_authorization: Base64.strict_encode64("#{GITHUB_REPOSITORY_OWNER}:#{GH_PAT}"),
+      app_identifier: [
+        "com.#{TEAMID}.loopkit.LoopCaregiver",
+        "com.#{TEAMID}.loopkit.LoopCaregiver.IntentExtension",
+        "com.#{TEAMID}.loopkit.LoopCaregiver.WidgetExtension",
+        "com.#{TEAMID}.loopkit.LoopCaregiver.watchkitapp",
+        "com.#{TEAMID}.loopkit.LoopCaregiver.watchkitapp.WidgetExtension",
+      ]
+    )
+
     mapping = Actions.lane_context[
       SharedValues::MATCH_PROVISIONING_PROFILE_MAPPING
     ]
